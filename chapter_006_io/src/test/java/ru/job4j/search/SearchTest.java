@@ -41,8 +41,8 @@ public class SearchTest {
     @Test
     public void whenSearchFilesWithGivenExtensionsThenReturnsCorrectList() {
         List<File> result = new Search().files(testDir.getAbsolutePath(), List.of("txt", "java"));
-//        assertThat(result, is(expectedFiles));
-        assertThat(new HashSet<>(result), is(new HashSet<>(expectedFiles)));
+        assertThat(result, is(expectedFiles));
+//        assertThat(new HashSet<>(result), is(new HashSet<>(expectedFiles)));
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
