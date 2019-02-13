@@ -25,6 +25,7 @@ public class Search {
             if (f.isDirectory()) {
                 File[] files = f.listFiles();
                 if (files != null) {
+                    Arrays.sort(files, Comparator.comparing(File::getAbsolutePath));
                     for (File file : files) {
                         System.out.println("file.getAbsolutePath(): " + file.getAbsolutePath());
                         queue.add(file);
