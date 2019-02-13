@@ -11,6 +11,8 @@ public class Search {
     /**
      * Gets a list of all files with an extension from the specified list of extensions.
      * Uses breadth first search in all subdirectories.
+     * List of files in every directory is sorted by name, because method @{code listFiles()} returns
+     * files in order different in Windows ans Linux.
      * @param parent starting directory
      * @param extensions list of extensions
      * @return list of found files
@@ -25,11 +27,12 @@ public class Search {
             if (f.isDirectory()) {
                 File[] files = f.listFiles();
                 if (files != null) {
-                    Arrays.sort(files, Comparator.comparing(File::getAbsolutePath));
-                    for (File file : files) {
+                    Arrays.sort(files, Comparator.comparing(File::getName));
+                    Collections.addAll(queue, files);
+                    /*for (File file : files) {
                         System.out.println("file.getAbsolutePath(): " + file.getAbsolutePath());
                         queue.add(file);
-                    }
+                    }*/
                 }
             } else if (filter.accept(f)) {
                 result.add(f);
