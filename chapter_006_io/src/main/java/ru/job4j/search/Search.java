@@ -25,7 +25,10 @@ public class Search {
             if (f.isDirectory()) {
                 File[] files = f.listFiles();
                 if (files != null) {
-                    Collections.addAll(queue, files);
+                    for (File file : files) {
+                        System.out.println("file.getAbsolutePath(): " + file.getAbsolutePath());
+                        queue.add(file);
+                    }
                 }
             } else if (filter.accept(f)) {
                 result.add(f);
