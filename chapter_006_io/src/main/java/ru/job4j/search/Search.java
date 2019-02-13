@@ -29,10 +29,6 @@ public class Search {
                 if (files != null) {
                     Arrays.sort(files, Comparator.comparing(File::getName));
                     Collections.addAll(queue, files);
-                    /*for (File file : files) {
-                        System.out.println("file.getAbsolutePath(): " + file.getAbsolutePath());
-                        queue.add(file);
-                    }*/
                 }
             } else if (filter.accept(f)) {
                 result.add(f);

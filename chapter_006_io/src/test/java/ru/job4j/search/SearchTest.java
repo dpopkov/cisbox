@@ -8,7 +8,6 @@ import org.junit.rules.TemporaryFolder;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import static org.hamcrest.core.Is.*;
@@ -42,7 +41,6 @@ public class SearchTest {
     public void whenSearchFilesWithGivenExtensionsThenReturnsCorrectList() {
         List<File> result = new Search().files(testDir.getAbsolutePath(), List.of("txt", "java"));
         assertThat(result, is(expectedFiles));
-//        assertThat(new HashSet<>(result), is(new HashSet<>(expectedFiles)));
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
